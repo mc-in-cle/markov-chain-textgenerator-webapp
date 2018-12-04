@@ -1,0 +1,74 @@
+﻿@using markov_chain_generator_webapp
+@using markov_chain_generator_webapp.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model TextGeneratorData
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Minor's World</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</head>
+<body>
+    <div id="textgen-main-content">
+        <a href="${homeURL }"><span id="homeButton">Home</span></a>
+        <h2 id="title">Markov Chain Text Generator</h2>
+        <h3 id="subtitle">
+            Copy and paste some source text into the box or select a sample.<br />
+            Press GENERATE to generate semi-random text based on the source.
+        </h3>
+        <h4 id="addl-info">
+            The model order setting roughly corresponds to how coherent the output is,
+            and how closely the output will resemble the source text.<br />
+            Caution: Higher model orders take longer to calculate, especially for lengthy input.
+        </h4>
+        <form method="post" asp-controller="textGenerator" asp-action="generate">
+            <div id="text-input">
+                <label asp-for="TextInput">Input text:</label><br />
+                <textarea asp-for="TextInput" rows="10" cols="60"></textarea>
+            </div>
+            <div id="forms">
+                <div class="form-item">
+                    <label asp-for="SampleInputChoice">Or, select a sample input:</label><br />
+                    <select asp-for="SampleInputChoice">
+                        @{
+                        foreach (KeyValuePair<string, string> entry in ViewBag.samples)
+                        {
+                        <option value=@entry.Key>@entry.Key</option>
+                        }
+                            }
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label asp-for="ModelOrder">Model Order:</label>
+                    <input asp-for="ModelOrder" type="number" min="2" max="15" />
+                </div>
+                <div class="form-item">
+                    <label asp-for="OutputLength">Output length (characters):</label>
+                    <input asp-for="OutputLength" min="0" max="10000" value="2000" />
+                </div>
+                <input class="btn" type="submit" value="Generate" />
+            </div>
+
+        </form>
+        <div id="output-panel">
+            <h4>Output</h4>
+            <p data-rawtext="@Model.Output"></p>
+        </div>
+    </div>
+    <div id="additional-info">
+		This application is powered by C# and ASP.NET.
+		Find the source code and a command-line interface on <a href=https://github.com/mc-in-cle>my Github.</a>
+	</div>
+</div>
+</body>
+<footer>
+    <p>&copy; Minor Cline 2018</p>
+</footer>
+</html>

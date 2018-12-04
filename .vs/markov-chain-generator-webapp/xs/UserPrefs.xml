@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{1CB9B4B3-C4EF-4C62-B476-74BAC494C229}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/js/site.js">
+    <Files>
+      <File FileName="Views/TextGenerator/Index.cshtml" Line="36" Column="29" />
+      <File FileName="wwwroot/css/site.css" Line="70" Column="21" />
+      <File FileName="Controllers/TextGeneratorController.cs" Line="51" Column="85" />
+      <File FileName="Models/TextGeneratorData.cs" Line="14" Column="25" />
+      <File FileName="wwwroot/js/site.js" Line="14" Column="37" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.markov-chain-generator-webapp PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
